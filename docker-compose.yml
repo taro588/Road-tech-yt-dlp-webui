@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  yt-dlp-webui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yt-dlp-webui
+    ports:
+      - "8888:8000"
+    volumes:
+      - ./downloads:/downloads
+      - ./config/config.json:/app/config/config.json
+    environment:
+      - CONFIG_PATH=/app/config/config.json
+      - STATIC_DIR=/app/static
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
