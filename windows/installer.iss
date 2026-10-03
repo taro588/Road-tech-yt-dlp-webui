@@ -23,7 +23,7 @@ CloseApplications=yes
 RestartApplications=no
 
 [Files]
-Source: "dist\yt-dlp-webui\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\dist\yt-dlp-webui\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{autoprograms}\yt-dlp WebUI"; Filename: "{app}\{#AppExeName}"
