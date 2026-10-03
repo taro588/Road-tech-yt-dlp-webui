@@ -42,7 +42,7 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force build/runtime/bin | Out-Null
           Invoke-WebRequest -Uri "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -OutFile "build/runtime/bin/yt-dlp.exe"
-          Invoke-WebRequest -Uri "https://github.com/GyanD/codexffmpeg/releases/latest/download/ffmpeg-release-essentials.zip" -OutFile "build/ffmpeg.zip"
+          Invoke-WebRequest -Uri "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip" -OutFile "build/ffmpeg.zip"
           Expand-Archive "build/ffmpeg.zip" -DestinationPath "build/ffmpeg" -Force
           $ffmpeg = Get-ChildItem "build/ffmpeg" -Filter ffmpeg.exe -Recurse | Select-Object -First 1
           if (-not $ffmpeg) { throw "FFmpeg binary was not found." }
